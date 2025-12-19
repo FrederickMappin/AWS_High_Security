@@ -5,13 +5,13 @@ This will be done manually for demo, for full scale we would use cloudformation 
 # Step 1.VPC set-up 
 AWS Console → VPC → Create VPC
 
-```
+'''
 VPC Settings:
 
 Name: rna-seq-hipaa-vpc
 IPv4 CIDR: 10.0.0.0/16
 IPv6: None
 Tenancy: Default
-```
+'''
 
 Click "Create VPC"
