@@ -1,13 +1,13 @@
 # Implementation of a Full RNA-seq pipeline on AWS
 '
-# This will be done manually for demo, for full scale we would use cloudformation to make "infrastructure as code"
+## This will be done manually for demo, for full scale we would use cloudformation to make "infrastructure as code"
 
-# Step 0. IAM group & User set-up
-# Goal: Set-up minimum required access to AWS services 
+## Step 0. IAM group & User set-up
+## Goal: Set-up minimum required access to AWS services 
 
 
 # Step 1.VPC set-up 
-# Goal: Set-up Virtual Private Cloud without Internet Access for maximum security
+## Goal: Set-up Virtual Private Cloud without Internet Access for maximum security
 AWS Console → VPC → Create VPC
 
 ```
