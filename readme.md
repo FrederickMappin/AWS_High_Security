@@ -106,7 +106,7 @@ Outbound rules:
 
 
 
-S3 Console → Create bucket
+# S3 Console → Create bucket
 
 ```
 Bucket name: 
