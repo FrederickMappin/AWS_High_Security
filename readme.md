@@ -34,12 +34,6 @@ IPv6: None
 Auto-assign public IPv4 address: Disabled (leave unchecked)
 ```
 
-```
-Name: rna-seq-igw
 
-After creation:
-Action: Attach to a VPC
-Available VPCs: rna-seq-hipaa-vpc
-```
 
 
