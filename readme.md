@@ -102,3 +102,31 @@ Outbound rules:
 
 → Create security group
 ```
+
+
+
+
+S3 Console → Create bucket
+
+```
+Bucket name: 
+  - rnaseq-hipaa-raw-data-bucket
+  - rnaseq-hipaa-results-bucket
+  - rnaseq-hipaa-logs-bucket
+  - rnaseq-hippa-reference-bucket
+    
+
+Region: US East (N. Virginia) us-east-1
+
+Block Public Access: ✓ Block all public access
+
+Bucket Versioning: Enable
+
+Default encryption: 
+  - Server-side encryption: Enabled
+  - Encryption type: SSE-S3 (AES-256)
+
+→ Create bucket
+```
+
+
