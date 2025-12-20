@@ -1,8 +1,8 @@
-## Implementation of a Full RNA-seq pipeline on AWS with High Security Standards
+# Implementation of a Full RNA-seq pipeline on AWS with High Security Standards
 '
 ## This will be done manually for demo, for full scale we would use cloudformation to make "infrastructure as code"
 
-## Step 0. IAM group & User set-up
+# Step 0. IAM group & User set-up
 ### Goal: Set-up minimum required access to AWS services 
 
 
