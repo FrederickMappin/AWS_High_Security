@@ -102,3 +102,22 @@ Policy: Full access (or custom for specific buckets)
 → Create endpoint
 ```
 
+### Create Security Group
+
+```
+VPC → Security Groups → Create security group
+
+Name: rna-seq-vpc-endpoint-sg
+Description: Allow VPC resources to access VPC endpoints
+VPC: rna-seq-hipaa-vpc
+
+Inbound rules:
+  Add rule →
+    Type: HTTPS
+    Source: Custom → 10.0.0.0/16
+
+Outbound rules:
+  Keep default (allows all outbound)
+
+→ Create security group
+```
