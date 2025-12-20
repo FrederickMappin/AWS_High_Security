@@ -7,30 +7,11 @@
 We will first validate and test our data pipeline using non‑sensitive test data (such as synthetic or de‑identified datasets) in an open AWS environment to ensure functionality, performance, and quality without exposing real health information, and only after those tests pass will we deploy the pipeline into a high‑security HIPAA‑compliant environment to process real protected health information.
 
 
+## Step 1: VPC Infrastructure Setup
 
 
 
-
-
-
-
-
-## Step 0. IAM group & User set-up
-### Goal: Set-up minimum required access to AWS services 
-
-
-## Step : Set S3 buckets permission 
-
-
-## Step : ECR 
-
-
-## Step: CodeCommit 
-
-
-
-
-## Step. Set-up VPC  
+## Set-up VPC  
 ### Goal: Set-up Virtual Private Cloud without Internet Access for maximum security
 
 
@@ -44,7 +25,7 @@ IPv6: None
 Tenancy: Default
 ```
 
-## Step 2.Set-up Private Subnet 
+## Set-up Private Subnet 
 ```
 
 Subnet 1: Private Subnet AZ1
@@ -65,7 +46,7 @@ Auto-assign public IPv4 address: Disabled (leave unchecked)
 ```
 
 
-### Step 3.Set-up explicit Route Table
+### Set-up explicit Route Table
 ```
 : Create Route Table
 VPC → Route Tables → Create route table
@@ -102,7 +83,7 @@ Policy: Full access (or custom for specific buckets)
 → Create endpoint
 ```
 
-### Create Security Group
+### Set-up Create Security Group
 
 ```
 VPC → Security Groups → Create security group
