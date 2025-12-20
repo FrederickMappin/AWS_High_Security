@@ -104,6 +104,48 @@ Parameters:
 → Create stack
 ```
 
+## Step 2: IAM Setup
+```
+Step 1: Create Group
+IAM → User groups → Create group
+Name: RNASeqAdministrators
+→ Create group
+
+Step 2: Create and Attach Policy to Group
+IAM → Policies → Create policy
+→ JSON tab
+→ Paste your JSON (with correct bucket name)
+→ Next
+Name: RNASeqAdministratorPolicy
+Description: Full access to RNA-Seq pipeline
+→ Create policy
+
+Then:
+IAM → User groups → RNASeqAdministrators
+→ Permissions → Add permissions → Attach policies
+→ Search: RNASeqAdministratorPolicy
+☑ Select it
+→ Attach policies
+
+Step 3: Create User and Add to Group
+IAM → Users → Create user
+
+User name: your-username
+☑ Provide user access to AWS Management Console
+→ Next
+
+Set permissions:
+☑ Add user to group
+☑ RNASeqAdministrators
+→ Next
+
+→ Create user
+```
+
+
+
+Step 3: Service Configuration
+
 ## S3 Console → Create bucket
 
 ```
