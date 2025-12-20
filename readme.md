@@ -30,7 +30,7 @@ We will first validate and test our data pipeline using non‑sensitive test dat
 
 
 
-## Step .VPC set-up 
+## Step. Set-up VPC  
 ### Goal: Set-up Virtual Private Cloud without Internet Access for maximum security
 
 
@@ -44,7 +44,7 @@ IPv6: None
 Tenancy: Default
 ```
 
-## Step 2. Private Subnet set-up
+## Step 2.Set-up Private Subnet 
 ```
 
 Subnet 1: Private Subnet AZ1
@@ -65,5 +65,23 @@ Auto-assign public IPv4 address: Disabled (leave unchecked)
 ```
 
 
-
+### Step 3.Set-up explicit Route Table
+```
+: Create Route Table
+VPC → Route Tables → Create route table
+Name: rna-seq-private-rt
+VPC: rna-seq-hipaa-vpc
+→ Create
+Step 2: Verify Routes
+Routes tab should show ONLY:
+10.0.0.0/16 → local
+(No other routes needed)
+Step 3: Associate Subnets
+Subnet associations tab
+→ Edit subnet associations
+→ Select both private subnets:
+  - rna-seq-private-subnet-az1
+  - rna-seq-private-subnet-az2
+→ Save
+```
 
