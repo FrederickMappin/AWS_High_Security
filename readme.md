@@ -14,7 +14,7 @@ IPv6: None
 Tenancy: Default
 ```
 
-# Step 2. Subnet set-up
+# Step 2. Private Subnet set-up
 ```
 
 Subnet 1: Private Subnet AZ1
