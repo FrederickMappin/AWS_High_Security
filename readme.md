@@ -85,3 +85,20 @@ Subnet associations tab
 → Save
 ```
 
+
+ ### S3 Gateway Endpoint 
+ ```
+VPC → Endpoints → Create endpoint
+
+Name: rna-seq-s3-endpoint
+Service category: AWS services
+Service name: com.amazonaws.us-east-1.s3
+Type: Gateway
+
+VPC: rna-seq-hipaa-vpc
+Route tables: Select rna-seq-private-rt
+
+Policy: Full access (or custom for specific buckets)
+→ Create endpoint
+```
+
