@@ -127,19 +127,13 @@ IAM → User groups → RNASeqAdministrators
 ☑ Select it
 → Attach policies
 
-Step 3: Create User and Add to Group
-IAM → Users → Create user
-
-User name: your-username
-☑ Provide user access to AWS Management Console
-→ Next
+Step 3:  Add User  to Group
 
 Set permissions:
 ☑ Add user to group
 ☑ RNASeqAdministrators
 → Next
 
-→ Create user
 ```
 
 
