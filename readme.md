@@ -67,22 +67,6 @@ Subnet associations tab
 ```
 
 
- ### Set-up S3 Gateway Endpoint 
- ```
-VPC → Endpoints → Create endpoint
-
-Name: rna-seq-s3-endpoint
-Service category: AWS services
-Service name: com.amazonaws.us-east-1.s3
-Type: Gateway
-
-VPC: rna-seq-hipaa-vpc
-Route tables: Select rna-seq-private-rt
-
-Policy: Full access (or custom for specific buckets)
-→ Create endpoint
-```
-
 ### Set-up Create Security Group
 
 ```
@@ -104,7 +88,21 @@ Outbound rules:
 ```
 
 
+### Deploy VPC Endpoints
+```
+CloudFormation → Create stack
 
+Upload: vpc-endpoints.yaml
+
+Parameters:
+  VpcId: vpc-xxxxx
+  PrivateSubnet1Id: subnet-xxxxx
+  PrivateSubnet2Id: subnet-xxxxx
+  RouteTableId: rtb-xxxxx
+  SecurityGroupId: sg-xxxxx 
+
+→ Create stack
+```
 
 ## S3 Console → Create bucket
 
