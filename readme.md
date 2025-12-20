@@ -86,7 +86,7 @@ Subnet associations tab
 ```
 
 
- ### S3 Gateway Endpoint 
+ ### Set-up S3 Gateway Endpoint 
  ```
 VPC → Endpoints → Create endpoint
 
