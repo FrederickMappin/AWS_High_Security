@@ -2,11 +2,35 @@
 '
 ## This will be done manually for demo, for full scale we would use cloudformation to make "infrastructure as code"
 
+
+# Step 0 : Prior Testing and optimization 
+We will first validate and test our data pipeline using non‑sensitive test data (such as synthetic or de‑identified datasets) in an open AWS environment to ensure functionality, performance, and quality without exposing real health information, and only after those tests pass will we deploy the pipeline into a high‑security HIPAA‑compliant environment to process real protected health information.
+
+
+
+
+
+
+
+
+
+
 # Step 0. IAM group & User set-up
 ### Goal: Set-up minimum required access to AWS services 
 
 
-# Step 1.VPC set-up 
+# Step : Set S3 buckets permission 
+
+
+# Step : ECR 
+
+
+# Step: CodeCommit 
+
+
+
+
+# Step .VPC set-up 
 ### Goal: Set-up Virtual Private Cloud without Internet Access for maximum security
 
 
