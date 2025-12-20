@@ -1,6 +1,6 @@
 Implementation of a Full RNA-seq pipeline on AWS
 
-This will be done manually for demo, for full scale we would use cloudformation to make software as code 
+This will be done manually for demo, for full scale we would use cloudformation to make infrastructure as code 
 
 # Step 1.VPC set-up 
 AWS Console → VPC → Create VPC
