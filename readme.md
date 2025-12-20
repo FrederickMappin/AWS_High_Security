@@ -109,12 +109,9 @@ Outbound rules:
 ## S3 Console → Create bucket
 
 ```
-Bucket name: 
-  - rnaseq-hipaa-raw-data-bucket
-  - rnaseq-hipaa-results-bucket
-  - rnaseq-hipaa-logs-bucket
-  - rnaseq-hippa-reference-bucket
-    
+S3 Console → Create bucket
+
+Bucket name: rnaseq-hipaa-data-bucket
 
 Region: US East (N. Virginia) us-east-1
 
@@ -127,6 +124,19 @@ Default encryption:
   - Encryption type: SSE-S3 (AES-256)
 
 → Create bucket
+
+Click into: rnaseq-hipaa-data-bucket
+
+→ Create folder
+
+Folder names (create each separately):
+  - raw-data/
+  - results/
+  - logs/
+  - reference/
+
+→ Create folder (for each)
+
 ```
 
 
