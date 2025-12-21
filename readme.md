@@ -58,7 +58,7 @@ Rule # | Type        | Protocol | Port Range | Source      | Allow/Deny
 
 Configure Outbound Rules:
 Rule # | Type        | Protocol | Port Range | Destination | Allow/Deny
-100    | HTTPS       | TCP      | 443        | 0.0.0.0/0   | Allow (VPC endpoints)
+100    | HTTPS       | TCP      | 443        | 10.0.0.0/16  | Allow (VPC endpoints)
 110    | Custom TCP  | TCP      | 1024-65535 | 10.0.0.0/16 | Allow (ephemeral)
 *      | All traffic | All      | All        | 0.0.0.0/0   | Deny
 
