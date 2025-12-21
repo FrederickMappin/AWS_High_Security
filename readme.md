@@ -49,7 +49,7 @@ VPC → Network ACLs → Create network ACL
 Name: rna-seq-private-nacl
 VPC: rna-seq-hipaa-vpc
 → Create
-
+```
 Configure Inbound Rules:
 Rule # | Type        | Protocol | Port Range | Source      | Allow/Deny
 100    | HTTPS       | TCP      | 443        | 10.0.0.0/16 | Allow
@@ -69,7 +69,7 @@ Associate with Subnets:
   - rna-seq-private-subnet-az1
   - rna-seq-private-subnet-az2
 → Save
-
+```
 ### Set-up explicit Route Table
 ```
 : Create Route Table
