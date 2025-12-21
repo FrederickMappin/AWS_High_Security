@@ -95,7 +95,6 @@ Subnet associations tab
 
 ```
 VPC → Security Groups → Create security group
-
 Name: rna-seq-vpc-endpoint-sg
 Description: Allow VPC resources to access VPC endpoints
 VPC: rna-seq-hipaa-vpc
@@ -103,10 +102,18 @@ VPC: rna-seq-hipaa-vpc
 Inbound rules:
   Add rule →
     Type: HTTPS
+    Protocol: TCP
+    Port: 443
     Source: Custom → 10.0.0.0/16
+    Description: Allow HTTPS from VPC resources
 
 Outbound rules:
-  Keep default (allows all outbound)
+  Add rule →
+    Type: HTTPS
+    Protocol: TCP
+    Port: 443
+    Destination: Custom → 10.0.0.0/16
+    Description: Allow HTTPS to VPC endpoints
 
 → Create security group
 ```
