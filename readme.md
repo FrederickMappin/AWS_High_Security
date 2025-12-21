@@ -119,7 +119,7 @@ Outbound rules:
 ```
 
 
-# Security group for Batch 
+## Security group for Batch 
 ```
 AWS Console → VPC → Security Groups → Create security group
 
@@ -164,7 +164,7 @@ Tags (optional but recommended):
 ```
 
 
-# Deploy VPC Endpoints
+## Deploy VPC Endpoints
 ```
 CloudFormation → Create stack
 
@@ -248,7 +248,7 @@ Folder names (create each separately):
 → Create folder (for each)
 
 ```
-Create VPC-Restricted S3 Access Point
+## Create VPC-Restricted S3 Access Point
 
 ```
 Step 1: Create the Access Point
