@@ -119,7 +119,52 @@ Outbound rules:
 ```
 
 
-### Deploy VPC Endpoints
+# Security group for Batch 
+```
+AWS Console → VPC → Security Groups → Create security group
+
+Basic details:
+  Security group name: rna-seq-compute-sg
+  Description: Security group for Batch compute instances
+  VPC: rna-seq-hipaa-vpc (select from dropdown)
+
+Inbound rules:
+  → Leave empty (don't add any rules)
+  
+Outbound rules:
+  → Click "Delete" on the default rule (Type: All traffic, Destination: 0.0.0.0/0)
+  
+  → Add rule
+    Type: HTTPS
+    Protocol: TCP (auto-filled)
+    Port range: 443 (auto-filled)
+    Destination: Custom
+      → Start typing "sg-" and select: rna-seq-vpc-endpoint-sg
+      (or paste the security group ID: sg-xxxxxxxxx)
+    Description: Allow access to VPC endpoints
+  
+  → Add rule (second rule)
+    Type: HTTPS
+    Protocol: TCP
+    Port range: 443
+    Destination: Custom → 10.0.0.0/16
+    Description: Allow HTTPS within VPC for S3 gateway endpoint
+
+Tags (optional but recommended):
+  Key: Name
+  Value: rna-seq-compute-sg
+  
+  Key: Environment
+  Value: HIPAA-Production
+  
+  Key: Purpose
+  Value: RNA-Seq-Batch-Compute
+
+→ Create security group
+```
+
+
+# Deploy VPC Endpoints
 ```
 CloudFormation → Create stack
 
