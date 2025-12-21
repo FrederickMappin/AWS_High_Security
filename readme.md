@@ -44,7 +44,31 @@ IPv6: None
 
 Auto-assign public IPv4 address: Disabled (leave unchecked)
 ```
+## Step: Configure Network ACLs 
+VPC → Network ACLs → Create network ACL
+Name: rna-seq-private-nacl
+VPC: rna-seq-hipaa-vpc
+→ Create
 
+Configure Inbound Rules:
+Rule # | Type        | Protocol | Port Range | Source      | Allow/Deny
+100    | HTTPS       | TCP      | 443        | 10.0.0.0/16 | Allow
+110    | Custom TCP  | TCP      | 1024-65535 | 10.0.0.0/16 | Allow (ephemeral)
+*      | All traffic | All      | All        | 0.0.0.0/0   | Deny
+
+Configure Outbound Rules:
+Rule # | Type        | Protocol | Port Range | Destination | Allow/Deny
+100    | HTTPS       | TCP      | 443        | 0.0.0.0/0   | Allow (VPC endpoints)
+110    | Custom TCP  | TCP      | 1024-65535 | 10.0.0.0/16 | Allow (ephemeral)
+*      | All traffic | All      | All        | 0.0.0.0/0   | Deny
+
+Associate with Subnets:
+→ Subnet associations tab
+→ Edit subnet associations
+→ Select both:
+  - rna-seq-private-subnet-az1
+  - rna-seq-private-subnet-az2
+→ Save
 
 ### Set-up explicit Route Table
 ```
