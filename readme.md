@@ -248,5 +248,22 @@ Folder names (create each separately):
 → Create folder (for each)
 
 ```
+Create VPC-Restricted S3 Access Point
 
+```
+Step 1: Create the Access Point
+S3 → rnaseq-hipaa-data-bucket → Access Points tab → Create access point
 
+Access point settings:
+  Access point name: rnaseq-vpc-access-point
+  Bucket name: rnaseq-hipaa-data-bucket (auto-filled)
+  
+Network origin:
+  ☑ Virtual private cloud (VPC)
+  VPC ID: Select rna-seq-hipaa-vpc (vpc-xxxxx)
+  
+Block Public Access settings:
+  ☑ Block all public access (should be checked by default)
+
+→ Create access point
+```
