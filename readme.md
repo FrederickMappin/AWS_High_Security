@@ -1,6 +1,7 @@
 # Bioinformatics pipeline on AWS with High Security Standards
 
-![Untitled Diagram](https://github.com/user-attachments/assets/e21454de-c01b-4a63-bfc9-800e9f0da3d8)
+![Untitled Diagram](https://github.com/user-attachments/assets/0115a52f-d8d3-42ec-8f91-43b83d6572f3)
+
 
 
 ## This will be done manually for demo, for full scale we would use cloudformation to make "infrastructure as code"
