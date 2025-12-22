@@ -1,5 +1,6 @@
 # Bioinformatics pipeline on AWS with High Security Standards
-<img width="723" height="421" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/36fbde55-918c-4712-9f89-edc9b3e56d30" />
+
+![Untitled Diagram](https://github.com/user-attachments/assets/e21454de-c01b-4a63-bfc9-800e9f0da3d8)
 
 
 ## This will be done manually for demo, for full scale we would use cloudformation to make "infrastructure as code"
