@@ -231,7 +231,7 @@ Bucket Versioning: Enable
 
 Default encryption: 
   - Server-side encryption: Enabled
-  - Encryption type: SSE-S3 (AES-256)
+  - Encryption type: SSE-KMS
 
 → Create bucket
 
