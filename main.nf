@@ -25,6 +25,7 @@
  * Emilio Palumbo <emiliopalumbo@gmail.com> 
  */ 
 
+nextflow.enable.dsl=2
  
 /*
  * Defines some parameters in order to specify the refence genomes
@@ -46,25 +47,16 @@ log.info """\
          .stripIndent()
  
 /*
- * Create the `read_pairs_ch` channel that emits tuples containing three elements:
- * the pair ID, the first read-pair file and the second read-pair file 
- */
-Channel
-    .fromFilePairs( params.reads )
-    .ifEmpty { error "Cannot find any reads matching: ${params.reads}" }
-    .set { read_pairs_ch } 
- 
-/*
  * Step 1. Builds the genome index required by the mapping process
  */
 process buildIndex {
     tag "$genome.baseName"
     
     input:
-    path genome from params.genome
+    path genome
      
     output:
-    path 'genome.index*' into index_ch
+    path 'genome.index*'
        
     """
     bowtie2-build --threads ${task.cpus} ${genome} genome.index
@@ -78,13 +70,13 @@ process mapping {
     tag "$pair_id"
      
     input:
-    path genome from params.genome 
-    path annot from params.annot
-    path index from index_ch
-    tuple val(pair_id), path(reads) from read_pairs_ch
+    path genome
+    path annot
+    path index
+    tuple val(pair_id), path(reads)
  
     output:
-    set pair_id, "accepted_hits.bam" into bam_ch
+    tuple val(pair_id), path("accepted_hits.bam")
  
     """
     tophat2 -p ${task.cpus} --GTF $annot genome.index $reads
@@ -100,8 +92,8 @@ process makeTranscript {
     publishDir params.outdir, mode: 'copy'  
        
     input:
-    path annot from params.annot
-    tuple val(pair_id), path(bam_file) from bam_ch
+    path annot
+    tuple val(pair_id), path(bam_file)
      
     output:
     tuple val(pair_id), path('transcript_*.gtf')
@@ -110,6 +102,21 @@ process makeTranscript {
     cufflinks --no-update-check -q -p $task.cpus -G $annot $bam_file
     mv transcripts.gtf transcript_${pair_id}.gtf
     """
+}
+
+workflow {
+    // Create channels
+    read_pairs_ch = Channel
+        .fromFilePairs( params.reads )
+        .ifEmpty { error "Cannot find any reads matching: ${params.reads}" }
+    
+    genome_ch = Channel.fromPath(params.genome)
+    annot_ch = Channel.fromPath(params.annot)
+    
+    // Execute pipeline
+    index_ch = buildIndex(genome_ch)
+    bam_ch = mapping(genome_ch, annot_ch, index_ch, read_pairs_ch)
+    makeTranscript(annot_ch, bam_ch)
 }
  
 workflow.onComplete { 

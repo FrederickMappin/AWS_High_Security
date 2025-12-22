@@ -1,12 +1,17 @@
-FROM pditommaso/dkrbase:1.2
+FROM ubuntu:20.04
 
-MAINTAINER Paolo Di Tommaso <paolo.ditommaso@gmail.com>
+LABEL maintainer="Paolo Di Tommaso <paolo.ditommaso@gmail.com>"
 
 #
 # Install pre-requistes
 #
 RUN apt-get update --fix-missing && \
-  apt-get install -q -y samtools python 
+  DEBIAN_FRONTEND=noninteractive apt-get install -q -y \
+  samtools \
+  python2 \
+  wget \
+  unzip && \
+  ln -s /usr/bin/python2 /usr/bin/python
   
 #
 # RNA-Seq tools 
