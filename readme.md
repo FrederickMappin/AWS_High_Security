@@ -250,6 +250,23 @@ Folder names (create each separately):
   - reference/
 ```
 
+
+# S3 Access point 
+```
+Create Access Point
+
+Go to your S3 bucket
+Click Access Points tab
+Click Create access point
+Configure Access Point
+
+Access point name: Enter name (e.g., my-access-point)
+Network origin: Choose Internet or VPC
+Block Public Access: Leave default (recommended)
+Click Create access point
+```
+
+
 ## Push your Docker Images to an ECR 
 ```
 ECR Step-by-Step Guide
