@@ -248,26 +248,48 @@ Folder names (create each separately):
   - results/
   - logs/
   - reference/
-
-→ Create folder (for each)
-
 ```
-## Create VPC-Restricted S3 Access Point
 
+## Push your Docker Images to an ECR 
 ```
-Step 1: Create the Access Point
-S3 → rnaseq-hipaa-data-bucket → Access Points tab → Create access point
+ECR Step-by-Step Guide
+Step 1: Create ECR Repository (AWS Console)
 
-Access point settings:
-  Access point name: rnaseq-vpc-access-point
-  Bucket name: rnaseq-hipaa-data-bucket (auto-filled)
-  
-Network origin:
-  ☑ Virtual private cloud (VPC)
-  VPC ID: Select rna-seq-hipaa-vpc (vpc-xxxxx)
-  
-Block Public Access settings:
-  ☑ Block all public access (should be checked by default)
+Go to ECR in AWS Console
+Click Create repository
+Enter repository name (e.g., my-app)
+Click Create repository
 
-→ Create access point
+Step 2: Attach IAM Role to EC2
+
+Go to IAM → Roles → Create role
+Select EC2 → Attach AmazonEC2ContainerRegistryFullAccess
+Name it → Create role
+Go to EC2 → Select instance → Actions → Security → Modify IAM role
+Select your role → Update IAM role
+
+Step 3: Connect to EC2
+
+Go to EC2 → Instances
+Select instance → Click Connect
+Choose EC2 Instance Connect → Connect
+
+Step 4: Install Docker (if needed)
+bashcurl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker $USER
+newgrp docker
+Step 5: Build Docker Image
+bashdocker build -t my-app .
+Step 6: Authenticate to ECR
+bashaws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin [account-id].dkr.ecr.us-east-1.amazonaws.com
+Step 7: Tag Image
+bashdocker tag my-app:latest [account-id].dkr.ecr.us-east-1.amazonaws.com/my-app:latest
+Step 8: Push to ECR
+bashdocker push [account-id].dkr.ecr.us-east-1.amazonaws.com/my-app:latest
+Get Your Account ID
+bashaws sts get-caller-identity --query Account --output text```
 ```
+
+
+
